@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.seekhoanimeassignment.data.repository.TopRatedRepository
 import com.example.seekhoanimeassignment.di.ActivityContext
+import com.example.seekhoanimeassignment.ui.DetailsViewModel
 import com.example.seekhoanimeassignment.ui.MainViewModel
 import com.example.seekhoanimeassignment.ui.ViewModelFractory
 import dagger.Module
@@ -21,7 +22,12 @@ class ActivityModule(private val activity:AppCompatActivity) {
     }
 
     @Provides
-    fun getViewModel(repository: TopRatedRepository):MainViewModel{
+    fun getTopViewModel(repository: TopRatedRepository):MainViewModel{
         return ViewModelProvider(activity,ViewModelFractory(repository))[MainViewModel::class]
+    }
+
+    @Provides
+    fun getDetailsViewModel(repository: TopRatedRepository):DetailsViewModel{
+        return ViewModelProvider(activity,ViewModelFractory(repository))[DetailsViewModel::class]
     }
 }

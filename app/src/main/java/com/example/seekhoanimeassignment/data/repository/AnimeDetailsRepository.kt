@@ -5,5 +5,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface AnimeDetailsRepository {
 
-    suspend fun getAnimeDetail(): Flow<AnimeDetailResponse>
+    suspend fun getAnimeDetail(mail_id: String): Flow<AnimeDetailResponse>
 }

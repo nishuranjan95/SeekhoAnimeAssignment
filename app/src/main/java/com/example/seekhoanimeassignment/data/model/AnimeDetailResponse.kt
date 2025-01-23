@@ -18,6 +18,7 @@ data class AnimeDetailData(
     var episodes: Int? = 0,
     var duration: String? = "",
     var rating: String? = "",
+    var score: String? = null,
 )
 
 data class Trailer(

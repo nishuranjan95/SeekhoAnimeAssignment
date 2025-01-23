@@ -1,12 +1,12 @@
 package com.example.seekhoanimeassignment
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView.LayoutManager
 import com.example.seekhoanimeassignment.Utils.ViewUtil
 import com.example.seekhoanimeassignment.data.model.TopRatedData
 import com.example.seekhoanimeassignment.databinding.ActivityMainBinding
@@ -39,12 +39,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setRCV(){
-        adapter= TopRatingAdapter(datalist)
+        adapter= TopRatingAdapter(datalist){
+            val intent= Intent(this,DetailsActivity::class.java)
+            intent.putExtra("mail_d",it)
+            startActivity(intent)
+        }
         binding.rcv.let {
             it.layoutManager=LinearLayoutManager(this)
             it.adapter=adapter
         }
     }
+
 
     private fun observeData() {
 

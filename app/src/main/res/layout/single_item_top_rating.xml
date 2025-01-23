@@ -18,7 +18,7 @@
             android:layout_height="64dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:src="@drawable/ds"/>
+            tools:src="@drawable/ds"/>
 
         <TextView
             android:id="@+id/title"

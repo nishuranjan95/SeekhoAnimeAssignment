@@ -8,7 +8,7 @@ import com.example.seekhoanimeassignment.R
 import com.example.seekhoanimeassignment.data.model.TopRatedData
 import com.example.seekhoanimeassignment.databinding.SingleItemTopRatingBinding
 
-class TopRatingAdapter(private val datalist: List<TopRatedData?>): RecyclerView.Adapter<TopRatingAdapter.ViewHolder>() {
+class TopRatingAdapter(private val datalist: List<TopRatedData?>, private val onItemClick:(String) -> Unit): RecyclerView.Adapter<TopRatingAdapter.ViewHolder>() {
     inner class ViewHolder(private val binding:SingleItemTopRatingBinding): RecyclerView.ViewHolder(binding.root) {
 
         fun bind(position: Int){
@@ -20,6 +20,9 @@ class TopRatingAdapter(private val datalist: List<TopRatedData?>): RecyclerView.
             binding.rating.text= datalist[position]?.score
             binding.title.text= datalist[position]?.title
             binding.countEp.text= "${datalist[position]?.episodes}"
+            binding.root.setOnClickListener{
+                datalist[position]?.title?.let { it1 -> onItemClick(it1) }
+            }
         }
 
     }
