@@ -6,7 +6,7 @@ data class TopRatedResponse(
 )
 
 data class TopRatedData(
-    var mail_id:Int?=0,
+    var mal_id:Int?=0,
     var duration: String? = "",
     var episodes: Int? = 0,
     var favorites: Int? = 0,

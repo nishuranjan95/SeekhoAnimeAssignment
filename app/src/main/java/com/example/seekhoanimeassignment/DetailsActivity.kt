@@ -19,16 +19,16 @@ import javax.inject.Inject
 class DetailsActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailsBinding
     @Inject lateinit var viewModel: DetailsViewModel
-    private var mail_id=0
+    private var mail_id="0"
     override fun onCreate(savedInstanceState: Bundle?) {
         getDept()
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+
         binding=ActivityDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         if(intent!=null){
-            mail_id=intent.getIntExtra("mail_id",0)
+            mail_id= intent.getStringExtra("mail_d").toString()
         }
 
         observeData()

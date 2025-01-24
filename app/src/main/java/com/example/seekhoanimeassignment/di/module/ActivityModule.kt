@@ -3,6 +3,7 @@ package com.example.seekhoanimeassignment.di.module
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.example.seekhoanimeassignment.data.repository.AnimeDetailsRepository
 import com.example.seekhoanimeassignment.data.repository.TopRatedRepository
 import com.example.seekhoanimeassignment.di.ActivityContext
 import com.example.seekhoanimeassignment.ui.DetailsViewModel
@@ -27,7 +28,7 @@ class ActivityModule(private val activity:AppCompatActivity) {
     }
 
     @Provides
-    fun getDetailsViewModel(repository: TopRatedRepository):DetailsViewModel{
+    fun getDetailsViewModel(repository: AnimeDetailsRepository):DetailsViewModel{
         return ViewModelProvider(activity,ViewModelFractory(repository))[DetailsViewModel::class]
     }
 }

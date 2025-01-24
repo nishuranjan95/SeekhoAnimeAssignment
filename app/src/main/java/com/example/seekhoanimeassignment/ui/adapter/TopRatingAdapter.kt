@@ -21,7 +21,7 @@ class TopRatingAdapter(private val datalist: List<TopRatedData?>, private val on
             binding.title.text= datalist[position]?.title
             binding.countEp.text= "${datalist[position]?.episodes}"
             binding.root.setOnClickListener{
-                datalist[position]?.title?.let { it1 -> onItemClick(it1) }
+                datalist[position]?.mal_id?.let { it1 -> onItemClick(it1.toString()) }
             }
         }
 
